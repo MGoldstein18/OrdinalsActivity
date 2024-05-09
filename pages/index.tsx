@@ -95,7 +95,6 @@ export default function Home() {
       </Button>
       <TableContainer>
         <Table variant='simple'>
-          <TableCaption>Imperial to metric conversion factors</TableCaption>
           <Thead>
             <Tr>
               <Th>Transaction ID</Th>
