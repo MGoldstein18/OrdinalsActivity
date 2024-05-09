@@ -17,8 +17,10 @@ import {
 export default function Home() {
   const [address, setAddress] = useState('');
   const [data, setData] = useState<null | any>(null);
+  const [isLoading, setLoading] = useState(false);
 
   const search = async () => {
+    setLoading(true);
     const response = await fetch('/api/hello', {
       method: 'POST',
       body: JSON.stringify({
@@ -31,6 +33,7 @@ export default function Home() {
     console.log('frontend data', returnedData);
 
     setData(returnedData);
+    setLoading(false);
   };
 
   let formattedBodyRows = null;
@@ -86,6 +89,7 @@ export default function Home() {
         borderRadius={'45'}
         colorScheme='blue'
         onClick={search}
+        isLoading={isLoading}
       >
         Search
       </Button>
@@ -104,13 +108,6 @@ export default function Home() {
             </Tr>
           </Thead>
           <Tbody>{formattedBodyRows}</Tbody>
-          <Tfoot>
-            <Tr>
-              <Th>To convert</Th>
-              <Th>into</Th>
-              <Th isNumeric>multiply by</Th>
-            </Tr>
-          </Tfoot>
         </Table>
       </TableContainer>
     </VStack>
