@@ -93,22 +93,24 @@ export default function Home() {
       >
         Search
       </Button>
-      <TableContainer>
-        <Table variant='simple'>
-          <Thead>
-            <Tr>
-              <Th>Transaction ID</Th>
-              <Th>Type</Th>
-              <Th>Inscription ID</Th>
-              <Th>Counterpart Address</Th>
-              <Th>Spend as Fee</Th>
-              <Th>Timestamp</Th>
-              <Th>Confirmed</Th>
-            </Tr>
-          </Thead>
-          <Tbody>{formattedBodyRows}</Tbody>
-        </Table>
-      </TableContainer>
+      {data && (
+        <TableContainer>
+          <Table variant='simple'>
+            <Thead>
+              <Tr>
+                <Th>Transaction ID</Th>
+                <Th>Type</Th>
+                <Th>Inscription ID</Th>
+                <Th>Counterpart Address</Th>
+                <Th>Spend as Fee</Th>
+                <Th>Timestamp</Th>
+                <Th>Confirmed</Th>
+              </Tr>
+            </Thead>
+            <Tbody>{formattedBodyRows}</Tbody>
+          </Table>
+        </TableContainer>
+      )}
     </VStack>
   );
 }
